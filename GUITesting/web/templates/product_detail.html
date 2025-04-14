@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Thông tin sản phẩm - Nghệ Shop{% endblock %}
+{% block content %}
+<section class="product-detail-section">
+    <h1 class="product-title">{{ product.name }}</h1>
+    <div class="product-detail">
+        <!-- Hình ảnh sản phẩm -->
+        <div class="product-image-container">
+            <img src="{{ url_for('static', filename='uploads/' + product.name + '.jpg') }}" alt="{{ product.name }}" class="product-image-large">
+        </div>
+
+        <!-- Thông tin sản phẩm -->
+        <div class="product-info">
+            <p class="product-price"><strong>Giá:</strong> {{ product.price }}₫</p>
+            <p><strong>Thương hiệu:</strong> {{ product.brand }}</p>
+            <p><strong>Danh mục:</strong> {{ product.category }}</p>
+            <p class="product-description"><strong>Mô tả:</strong> {{ product.productionInfo }}</p>
+
+            <h2 class="specifications-title">Thông Số Kỹ Thuật</h2>
+            <table class="specifications-table">
+                {% if specifications %}
+                    <tr><th>Vi xử lý</th><td>{{ specifications[0].processor }}</td></tr>
+                    <tr><th>Card đồ họa</th><td>{{ specifications[0].graphics }}</td></tr>
+                    <tr><th>RAM</th><td>{{ specifications[0].ram }}</td></tr>
+                    <tr><th>Lưu trữ</th><td>{{ specifications[0].storage }}</td></tr>
+                    <tr><th>Màn hình</th><td>{{ specifications[0].screen }}</td></tr>
+                    <tr><th>Âm thanh</th><td>{{ specifications[0].sound }}</td></tr>
+                    <tr><th>Cổng kết nối</th><td>{{ specifications[0].ports }}</td></tr>
+                    <tr><th>Kích thước</th><td>{{ specifications[0].dimensions }}</td></tr>
+                    <tr><th>Trọng lượng</th><td>{{ specifications[0].weight }}</td></tr>
+                    <tr><th>Chức năng bổ sung</th><td>{{ specifications[0].additionalFeatures }}</td></tr>
+                    <tr><th>Tiện ích</th><td>{{ specifications[0].utilities }}</td></tr>
+                    <tr><th>Pin và Sạc</th><td>{{ specifications[0].batteryAndCharging }}</td></tr>
+                {% else %}
+                    <tr><td colspan="2">Không có thông số kỹ thuật nào cho sản phẩm này.</td></tr>
+                {% endif %}
+            </table>
+
+            <a href="{{ url_for('add_to_cart', product_id=product.productID) }}" class="add-to-cart">Thêm vào giỏ hàng</a>
+        </div>
+    </div>
+    <a href="{{ url_for('products') }}" class="back-to-products">← Quay lại </a>
+</section>
+{% endblock %}

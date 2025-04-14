@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nghệ Shop - Nơi mua sắm công nghệ đáng tin cậy </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/svg+xml" href="./static/logo.svg">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Nghệ Shop
+            <img src="{{ url_for('static', filename='logo.svg') }}" alt="Nghệ Shop Logo" width="300" height="50">
+        </div>
+        <nav>
+            <ul>
+                <!-- Trang Chủ -->
+                <li>
+                    <a href="{{ url_for('home') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#ffffff"/>
+                        </svg>
+                        Trang chủ
+                    </a>
+                </li>
+    
+                <!-- Sản Phẩm -->
+                <li>
+                    <a href="{{ url_for('products') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                            <path d="M10 9V4h4v5h5v2h-1.68L14.12 21h-4.24L6.68 11H5V9h5z" fill="#ffffff"/>
+                        </svg>
+                        Sản phẩm
+                    </a>
+                </li>
+    
+                <!-- Giỏ Hàng -->
+                <li>
+                    <a href="{{ url_for('cart') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                            <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7 6h14v12H7z" fill="#ffffff"/>
+                        </svg>
+                        Giỏ hàng
+                    </a>
+                </li>
+    
+                <!-- Thanh Tìm Kiếm -->
+                <li class="search-bar">
+                    <form action="{{ url_for('search') }}" method="GET">
+                        <input type="text" name="query" placeholder="Tìm kiếm sản phẩm..." required>
+                        <button type="submit">
+                            <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="11" cy="11" r="7" stroke="#333" stroke-width="2" fill="none"/>
+                                <line x1="16" y1="16" x2="22" y2="22" stroke="#333" stroke-width="2"/>
+                            </svg>
+                            
+                        </button>
+                    </form>
+                </li>
+    
+                {% if current_user.is_authenticated %}
+                    <!-- Tài Khoản -->
+                    <li>
+                        <a href="{{ url_for('account') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#ffffff"/>
+                            </svg>
+                            {{ current_user.username }}
+                        </a>
+                    </li>
+    
+                    <!-- Đăng Xuất -->
+                    <li>
+                        <a href="{{ url_for('auth.logout') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                                <path d="M10 17v-2H5V9h5V7l5 5-5 5zM17 3H7c-1.1 0-2 .9-2 2v2h2V5h10v14H7v-2H5v2c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#ffffff"/>
+                            </svg>
+                            Đăng xuất
+                        </a>
+                    </li>
+                {% else %}
+                    <!-- Đăng Nhập -->
+                    <li>
+                        <a href="{{ url_for('auth.login') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                                <path d="M10 17v-2H5V9h5V7l5 5-5 5zM17 3H7c-1.1 0-2 .9-2 2v2h2V5h10v14H7v-2H5v2c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#ffffff"/>
+                            </svg>
+                            Đăng nhập
+                        </a>
+                    </li>
+    
+                    <!-- Đăng Ký -->
+                    <li>
+                        <a href="{{ url_for('auth.register') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm5-9h2v2h-2v2h-2V7h-2V5h2V3h2v2z" fill="#ffffff"/>
+                            </svg>
+                            Đăng ký
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Nghệ Shop. Mọi quyền được bảo lưu.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>

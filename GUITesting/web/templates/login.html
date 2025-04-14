@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Đăng nhập - Nghệ Shop{% endblock %}
+
+{% block content %}
+  
+
+    <!-- Login Form -->
+    
+        <section class="login-section">
+            <h1>Đăng Nhập</h1>
+            <form method="POST" class="login-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Nhập email" required>
+
+                <label for="password">Mật Khẩu:</label>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+
+                <button type="submitLogin">Đăng Nhập</button>
+            </form>
+            <p>Chưa có tài khoản? <a href="{{ url_for('auth.register') }}">Đăng Ký</a></p>
+        </section>
+        {% endblock %}

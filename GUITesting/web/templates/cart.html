@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Giỏ hàng - Nghệ Shop{% endblock %}
+
+{% block content %}
+
+<section class="cart-section">
+    <h1>Giỏ Hàng của Bạn</h1>
+
+    <!-- Bảng sản phẩm trong giỏ hàng -->
+    <form action="{{ url_for('checkout') }}" method="POST">
+        <div class="select-all">
+            <input type="checkbox" id="select-all" onclick="toggleSelectAll(this)">
+            <label for="select-all">Chọn tất cả</label>
+        </div>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Chọn</th>
+                    <th>Sản Phẩm</th>
+                    <th>Giá</th>
+                    <th>Số Lượng</th>
+                    <th>Thành Tiền</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td><input type="checkbox" name="selected_items" value="{{ item.id }}" class="product-checkbox"></td>  <!-- Checkbox để chọn sản phẩm -->
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.product.price }}₫</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.product.price * item.quantity }}₫</td>
+                    <td><a href="{{ url_for('remove_from_cart', item_id=item.id) }}" class="remove-button">Xóa</a></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="empty-cart">Giỏ hàng của bạn đang trống.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Tổng tiền cho sản phẩm được chọn -->
+        <div class="cart-total">
+            <h2>Tổng Tiền: <span id="total-price">0.00</span></h2>
+        </div>
+
+        <!-- Nút Tiếp tục mua hàng và Đặt hàng -->
+        <div class="cart-actions">
+            <a href="{{ url_for('products') }}" class="continue-shopping">Tiếp Tục Mua Hàng</a>
+            <button type="submit" class="checkout-button">Đặt hàng</button>  <!-- Cập nhật nút thành Đặt hàng -->
+        </div>
+    </form>
+</section>
+
+<script>
+    // Hàm tính tổng tiền cho các sản phẩm được chọn
+    function calculateTotal() {
+        const checkboxes = document.querySelectorAll('.product-checkbox');
+        const totalPriceElement = document.getElementById('total-price');
+        let total = 0;
+
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                const row = checkbox.closest('tr');
+                const price = parseFloat(row.cells[2].innerText.replace('$', ''));
+                const quantity = parseInt(row.cells[3].innerText);
+                total += price * quantity;
+            }
+        });
+
+        totalPriceElement.innerText = total.toFixed(2);
+    }
+
+    // Thêm sự kiện click cho các checkbox
+    document.querySelectorAll('.product-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', calculateTotal);
+    });
+
+    // Hàm chọn/bỏ chọn tất cả
+    function toggleSelectAll(selectAllCheckbox) {
+        const checkboxes = document.querySelectorAll('.product-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+        calculateTotal();
+    }
+</script>
+{% endblock %}

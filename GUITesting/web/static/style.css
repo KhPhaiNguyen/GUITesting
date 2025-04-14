@@ -1,0 +1,1228 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav {
+    display: flex;
+    gap: 15px;
+}
+
+header nav li {
+    list-style-type: none;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+   
+}
+
+header .search-bar input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+header .search-bar button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #ff6600;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+header .search-bar button:hover {
+    background-color: #ff4500;
+}
+/* Styles for icons in navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    gap: 8px; /* Khoảng cách giữa icon và text */
+}
+
+/* Banner section */
+.banner {
+    background-image: url('banner.jpg'); /* Thay thế đường dẫn ảnh banner của bạn */
+    background-size: cover; /* Hiển thị full ảnh */
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding: 150px 20px; /* Tăng padding để banner chiếm nhiều không gian hơn */
+    margin-bottom: 50px; /* Khoảng cách giữa banner và danh mục sản phẩm */
+}
+
+.banner h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.banner button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.banner button:hover {
+    background-color: #ff4500;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer .social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+footer .social-links a:hover {
+    color: #ff6600;
+}
+
+/*product*/
+
+/* Product page styles */
+.product-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-section h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 15px;
+    text-align: left;
+}
+
+.product-name {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #ff6600;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.add-to-cart {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #ff4500;
+}
+
+/*register*/
+.register-section {
+    width: 350px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.register-form input:focus {
+    border-color: #ff6600;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.3);
+}
+
+.register-form button {
+    padding: 10px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.register-form button:hover {
+    background-color: #ff4500;
+}
+
+.register-section p {
+    text-align: center;
+    margin-top: 15px;
+    color: #555;
+}
+
+.register-section p a {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.register-section p a:hover {
+    color: #ff4500;
+}
+/* Main login section */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-section {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-section h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-form input:focus {
+    border-color: #ff6600;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.3);
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+    max-width: 280px; /* Giới hạn độ rộng của nút */
+    margin: 0 auto; /* Căn giữa nút */
+    margin-top: 10px;
+}
+
+.login-form button:hover {
+    background-color: #ff4500;
+}
+
+.login-section p {
+    margin-top: 15px;
+    color: #555;
+}
+
+.login-section p a {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.login-section p a:hover {
+    color: #ff4500;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto; /* Đẩy footer xuống cuối trang */
+}
+
+footer .social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+footer .social-links a:hover {
+    color: #ff6600;
+}
+/* Account page styles */
+.account-section {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.account-section h1 {
+    font-size: 26px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.account-details, .order-history {
+    margin-bottom: 20px;
+}
+
+.account-details h2, .order-history h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.account-details p, .order-history p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.account-action {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.account-action:hover {
+    background-color: #0056b3;
+}
+
+.order-history ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-history li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.view-order {
+    display: inline-block;
+    margin-top: 5px;
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.view-order:hover {
+    color: #ff4500;
+}
+
+.logout-button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #ff6600;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #ff4500;
+}
+/* Cart page styles */
+.cart-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-section h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #333;
+    color: #fff;
+}
+
+.cart-table td {
+    font-size: 16px;
+}
+
+.empty-cart {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    padding: 20px;
+}
+
+.remove-button {
+    color: #ff4500;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.remove-button:hover {
+    color: #cc0000;
+}
+
+/* Cart total section */
+.cart-total h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Cart actions */
+
+.cart-actions {
+    
+    align-items: center; /* Đảm bảo các nút căn giữa theo chiều dọc */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.continue-shopping {
+    
+    padding: 12px 20px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.checkout-button {
+    padding: 12px 20px;
+    color: white;
+    background-color: #ff6600;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.continue-shopping:hover {
+    background-color: #0056b3;
+}
+
+.checkout-button:hover {
+    background-color: #ff4500;
+}
+
+/* Checkout page styles */
+.checkout-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-section h1 {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Billing information form */
+.billing-info {
+    margin-bottom: 30px;
+}
+
+.billing-info h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.billing-info label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.billing-info input[type="text"],
+.billing-info input[type="tel"],
+.billing-info input[type="email"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.billing-info input:focus {
+    border-color: #ff6600;
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.3);
+}
+
+/* Order summary table */
+.order-summary {
+    margin-bottom: 30px;
+}
+
+.order-summary h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-table th,
+.order-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.order-table th {
+    background-color: #333;
+    color: #fff;
+}
+
+.total-amount h3 {
+    font-size: 24px;
+    color: #333;
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* Checkout button */
+.checkout-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.checkout-button button {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-button button:hover {
+    background-color: #ff4500;
+}
+/* Định dạng logo trong header */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+    margin-left: 10px
+}
+/* Thiết kế cho thanh tìm kiếm */
+/* Kiểu dáng thanh tìm kiếm */
+.search-bar {
+    position: relative;
+    display: inline-block;
+}
+
+.search-bar form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s;
+}
+
+.search-bar form:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input[type="text"] {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    width: 250px;
+    background-color: transparent;
+    color: #333;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.search-bar button {
+    padding: 0 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+/* Checkout table styles */
+.checkout-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.checkout-table th,
+.checkout-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.checkout-table th {
+    background-color: #333;
+    color: #fff;
+}
+
+.checkout-total h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Checkout form styles */
+.checkout-section form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.checkout-section label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.checkout-section input[type="text"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.checkout-section button {
+    padding: 10px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.checkout-section button:hover {
+    background-color: #ff4500;
+}
+/* Section tiêu đề danh mục */
+.category-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.category-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Danh mục sản phẩm */
+/* Section tiêu đề danh mục */
+.category-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.category-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Danh mục sản phẩm */
+.category-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cột trên mỗi hàng */
+    gap: 30px; /* Khoảng cách giữa các mục */
+    justify-items: center; /* Căn giữa các mục theo chiều ngang */
+    margin-top: 20px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border-radius: 12px;
+    width: 150px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-left: 50px;
+}
+
+.category-item svg {
+    margin-bottom: 10px;
+    color: #01070d; /* Màu biểu tượng */
+}
+
+.category-item span {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+/* Phần chứa chi tiết sản phẩm */
+.product-detail-section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail-section h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Bố cục tổng thể chi tiết sản phẩm */
+.product-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .product-detail {
+        flex-direction: row;
+    }
+}
+
+/* Hình ảnh sản phẩm */
+.product-image-large {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+.product-image-container{
+    margin: auto;
+}
+
+/* Thông tin sản phẩm */
+.product-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-info p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.product-info h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Bảng thông số kỹ thuật */
+.specifications-table {
+    width: 100%;
+    border-collapse:collapse;
+    
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+.specifications-table th, .specifications-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.specifications-table th {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.specifications-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Nút Thêm vào Giỏ hàng */
+.add-to-cart {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 20px;
+    background-color: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+
+/* Nút quay lại */
+.back-to-products {
+    display: inline-block;
+    margin-top: 30px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.back-to-products:hover {
+    color: #0056b3;
+}
+/* Order Success Section */
+.order-success-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Đảm bảo phần nội dung ở giữa màn hình */
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.success-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.success-container h1 {
+    font-size: 28px;
+    color: #28a745; /* Màu xanh biểu thị thành công */
+    margin-bottom: 10px;
+}
+
+.success-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.back-to-home-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.back-to-home-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Bố cục lưới sản phẩm 4-4 */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cột */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Kiểu dáng cho từng sản phẩm */
+.product-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.product-name {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #333;
+    white-space: nowrap;
+}
+
+.product-price {
+    font-size: 1.1em;
+    color: #ff6600;
+    margin-top: 5px;
+}
+
+a.add-to-cart {
+    display: inline-block;
+    margin: 25px 80px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    text-align: center;
+    
+}
+a.button.add-to-cart {
+ display: inline-block;
+    margin: 10px 5px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+.view-details {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.view-details:hover, .add-to-cart:hover {
+    background-color: #0056b3;
+    text-align: center;
+}
+
+
+/* Kiểu dáng phân trang */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page-link {
+    margin: 0 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.page-link:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột trên màn hình nhỏ hơn */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 cột trên màn hình rất nhỏ */
+    }
+}
+/* Định dạng cho các nút sản phẩm ở hai dòng */
+.product-actions {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* khoảng cách giữa icon và văn bản */
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    width: 100%; /* Để nút rộng bằng 100% khối */
+    margin-bottom: 8px;
+}
+
+.button svg {
+    transition: transform 0.2s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0, 91, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.button:hover svg {
+    transform: scale(1.2);
+}
+
+/* Căn giữa các icon */
+.product-actions .button svg {
+    margin-right: 5px;
+}
+

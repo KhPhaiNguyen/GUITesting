@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "../../Python"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Thiết kế Web",
+		"files.associations": {
+			"iostream": "cpp",
+			"*.tcc": "cpp",
+			"ostream": "cpp"
+		}
+	}
+}

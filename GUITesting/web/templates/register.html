@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Đăng kí - Nghệ Shop{% endblock %}
+
+{% block content %}
+
+      <!-- Register Form -->
+        <section class="register-section">
+            <h1>Đăng Ký Tài Khoản</h1>
+            <form method="POST" class="register-form">
+                <label for="username">Tên Người Dùng:</label>
+                <input type="text" id="username" name="username" placeholder="Nhập tên người dùng" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+
+                <label for="fullname">Họ và Tên:</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên của bạn" required>
+
+                <label for="password">Mật Khẩu:</label>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+
+                <button type="submit">Đăng Ký</button>
+            </form>
+            <p>Đã có tài khoản? <a href="{{ url_for('auth.login') }}">Đăng Nhập</a></p>
+        </section>
+{% endblock %}

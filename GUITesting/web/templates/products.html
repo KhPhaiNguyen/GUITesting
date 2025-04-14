@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Sản phẩm - Nghệ Shop{% endblock %}
+{% block content %}
+<section class="product-section">
+    <h1>Danh Sách Sản Phẩm</h1>
+
+    <div class="product-grid">
+        {% if products %}
+        {% for product in products %}
+        <div class="product-item">
+            <img src="{{ url_for('static', filename='uploads/' + product.name + '.jpg') }}" alt="{{ product.name }}" class="product-image">
+            <div class="product-details">
+                <h2 class="product-name">{{ product.name }}</h2>
+                <p class="product-description">{{ product.productionInfo }}</p>
+                <p class="product-price"><strong>Giá:</strong> {{ product.price }}₫</p>
+
+                <div class="product-actions">
+                    <a href="{{ url_for('product_detail', product_id=product.productID) }}" class="button view-details">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 4.5a7.5 7.5 0 1 0 7.5 7.5A7.509 7.509 0 0 0 12 4.5zm0 13.5a6 6 0 1 1 6-6a6 6 0 0 1-6 6zm-1-10.5h2v6h-2zm1 9a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 12 16.5z"/>
+                        </svg>
+                        Xem chi tiết
+                    </a>
+                </div>
+                <div class="product-actions">
+                    <a href="{{ url_for('add_to_cart', product_id=product.productID) }}" class="button add-to-cart">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2zm-11.75-4L3 6h17.9l1.1 8H5.25l-.6 2H17v2H4.25z"/>
+                        </svg>
+                        Thêm vào giỏ hàng
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Không có sản phẩm nào.</p>
+    {% endif %}
+    </div>
+
+    <!-- Phân trang -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('products', page=page-1) }}" class="page-link">← Trang trước</a>
+        {% endif %}
+        {% if has_next_page %}
+            <a href="{{ url_for('products', page=page+1) }}" class="page-link">Trang sau →</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

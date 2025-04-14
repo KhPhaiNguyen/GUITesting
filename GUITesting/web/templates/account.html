@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Tài khoản - Nghệ Shop{% endblock %}
+
+{% block content %}
+    
+ <!-- Account Information Section -->
+ 
+    <section class="account-section">
+        <h1>Thông Tin Tài Khoản</h1>
+        
+        <!-- Thông tin cơ bản của tài khoản -->
+        <div class="account-details">
+            <h2>Thông Tin Cá Nhân</h2>
+            <p><strong>Tên người dùng:</strong> {{ current_user.fullname }}</p>
+            <p><strong>Email:</strong> {{ current_user.email }}</p>
+        </div>
+
+        <!-- Nút Đăng xuất -->
+        <a href="{{ url_for('auth.logout') }}" class="logout-button">Đăng Xuất</a>
+    </section>
+    {% endblock %}

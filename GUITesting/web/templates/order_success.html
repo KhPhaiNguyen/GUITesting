@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="order-success-section">
+    <div class="success-container">
+        <h1>Cảm ơn bạn đã mua hàng!</h1>
+        <p>Đơn hàng của bạn đã được đặt thành công.</p>
+        <a href="{{ url_for('home') }}" class="back-to-home-btn">Quay lại trang chủ</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Sản phẩm - Nghệ Shop{% endblock %}
+
+{% block content %}
+
+    <h1>Kết quả tìm kiếm cho "{{ query }}"</h1>
+    <div class="product-list">
+        {% if products %}
+            {% for product in products %}
+            <div class="product-item">
+                <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p>Giá: {{ product.price }}₫</p>
+                <a href="{{ url_for('product_detail', product_id=product.productID) }}" class="button view-details">Xem chi tiết</a>
+                <a href="{{ url_for('add_to_cart', product_id=product.productID) }}" class="button add-to-cart">Thêm vào giỏ hàng</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Không tìm thấy sản phẩm nào.</p>
+        {% endif %}
+    </div>
+
+    <!-- Phân trang -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('search', query=query, page=page-1) }}" class="page-link">← Trang trước</a>
+        {% endif %}
+        {% if has_next_page %}
+            <a href="{{ url_for('search', query=query, page=page+1) }}" class="page-link">Trang sau →</a>
+        {% endif %}
+    </div>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+{% endblock %}
