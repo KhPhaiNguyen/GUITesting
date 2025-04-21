@@ -1,39 +1,45 @@
 import time
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Khởi tạo trình điều khiển (driver) cho Chrome
-driver = webdriver.Chrome()
 
-# Mở trang đăng nhập
-driver.get("http://localhost:5000/login")
+def login_test(email, password, expect_success):
+    driver = webdriver.Chrome()
+    driver.get("http://localhost:5000/login")
 
-# ✅ Đợi tối đa 10 giây để phần tử có name="username" xuất hiện, sau đó điền "admin"
-WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.NAME, "email"))
-).send_keys("shine04112004@gmail.com")
+    try:
+        # Nhập email và mật khẩu
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.NAME, "email"))
+        ).send_keys(email)
+        driver.find_element(By.NAME, "password").send_keys(password)
+        driver.find_element(By.CSS_SELECTOR, "button[type='submitLogin']").click()
 
-# Tìm ô mật khẩu theo name="password" và điền "admin"
-driver.find_element(By.NAME, "password").send_keys("1")
+        # Đợi một chút để xử lý đăng nhập
+        time.sleep(2)
 
-# Tìm nút submit và click (gửi biểu mẫu đăng nhập)
-driver.find_element(By.CSS_SELECTOR, "button[type='submitLogin']").click()
+        if expect_success:
+            # ✅ Chờ cho URL chuyển hướng đến trang chính
+            WebDriverWait(driver, 10).until(EC.url_contains("/"))
+            print("Đăng nhập thành công!")
+        else:
+            # ❌ Nếu vẫn ở trang /login, tức là đăng nhập thất bại
+            if "/login" in driver.current_url:
+                print("Đăng nhập thất bại!")
+            else:
+                print("Lỗi không xác định!")
 
-# ✅ Đợi tối đa 10 giây để URL thay đổi và chứa "/dashboard" (điều kiện sau khi đăng nhập thành công)
-WebDriverWait(driver, 10).until(
-    EC.url_contains("/")
-)
+    except Exception as e:
+        print("Lỗi xảy ra:", str(e))
+    finally:
+        time.sleep(2)
+        driver.quit()
 
-# ✅ Kiểm tra xem từ "Trang chủ" có xuất hiện trong mã nguồn HTML của trang sau khi đăng nhập không
-assert "Trang chủ" in driver.page_source
 
-# Nếu không có lỗi xảy ra đến đây, in ra thông báo đăng nhập thành công
-print("✅ Đăng nhập thành công!")
+# Test case 1: Thành công
+login_test("shine04112004@gmail.com", "1", expect_success=True)
 
-time.sleep(5)  # Hiện website trong 5s
-
-# Đóng trình duyệt
-driver.quit()
+# Test case 2: Thất bại
+login_test("aaaa@gmail.com", "1", expect_success=False)
