@@ -8,18 +8,17 @@ from selenium.webdriver.support import expected_conditions as EC
 driver = webdriver.Chrome()
 driver.get("http://localhost:5000")
 
-# Tìm kiếm sản phẩm, ví dụ: "Laptop"
+# Nhập từ khóa cần tìm
 search_box = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.NAME, "query"))
 )
 search_box.send_keys("Phone")
 search_box.submit()
 
-# Chờ kết quả tìm kiếm hiện ra (tuỳ vào trang web của bạn)
+# Chờ kết quả tìm kiếm hiện ra
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "product-item")))
 
 print("✅ Tìm kiếm hiển thị kết quả thành công!")
 
-time.sleep(5)  # Hiện website trong 5s
-
+time.sleep(10)
 driver.quit()

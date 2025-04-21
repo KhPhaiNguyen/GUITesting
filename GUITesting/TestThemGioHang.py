@@ -14,10 +14,10 @@ driver.find_element(By.NAME, "password").send_keys("1")
 driver.find_element(By.CSS_SELECTOR, "button[type='submitLogin']").click()
 WebDriverWait(driver, 10).until(EC.url_contains("/"))
 
-# Vào trang danh mục sản phẩm, ví dụ Laptop
+# Chọn danh mục
 driver.find_element(By.LINK_TEXT, "Laptop").click()
 
-# Thêm một sản phẩm vào giỏ hàng
+# Thêm sản phẩm vào giỏ hàng
 add_btn = WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable((By.CLASS_NAME, "add-to-cart"))
 )
@@ -31,6 +31,5 @@ cart_link = WebDriverWait(driver, 10).until(
 )
 cart_link.click()
 
-time.sleep(5)
-
+time.sleep(10)
 driver.quit()
